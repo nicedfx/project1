@@ -74,17 +74,17 @@ public class MainPageTests extends TestBase {
 
         open("");
         $(".link-container").scrollIntoView(true);
-        $$(".link-container").get(1).click();
+        $$(".link-container a").get(1).click();
         $("body").shouldHave(text("Блог"));
 
         open("");
         $(".link-container").scrollIntoView(true);
-        $$(".link-container").get(2).click();
+        $$(".link-container a").get(2).click();
         $("body").shouldHave(text("Проекты"));
 
         open("");
         $(".link-container").scrollIntoView(true);
-        $$(".link-container").get(3).click();
+        $$(".link-container a").get(3).click();
         $("body").shouldHave(text("События"));
     }
 
