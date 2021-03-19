@@ -19,10 +19,10 @@ public class ContactsPageTests extends TestBase {
     @Test
     @Description("Check footer social network links")
     @Tag("positive")
-    void ContactsFooterSocialLinksTest() {
+    void contactsFooterSocialLinksTest() {
         open("");
 
-        $("div.menu [href='/contacts']").click();
+        $("div.menu [href='contacts']").click();
         $("body").$(byText("© 2018 – 2020 ai people")).scrollIntoView(true);
         $("div.footer-component .socials").$$("a").get(0).shouldHave(Condition.attribute("href", "https://www.facebook.com/pg/AIPeople-1604836239648797/about/?ref=page_internal"));
         $("div.footer-component .socials").$$("a").get(1).shouldHave(Condition.attribute("href", "https://vk.com/aipeopleteam"));
