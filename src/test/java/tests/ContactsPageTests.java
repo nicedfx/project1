@@ -7,8 +7,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 import static helpers.AttachmentsHelper.getConsoleLogs;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
@@ -17,7 +16,7 @@ import static org.hamcrest.Matchers.not;
 public class ContactsPageTests extends TestBase {
     @Test
     @Description("Check footer social network links")
-    @Tag("positive")
+    @Tag("web")
     void contactsFooterSocialLinksTest() {
         open("");
 
@@ -32,9 +31,11 @@ public class ContactsPageTests extends TestBase {
     @Description("Open 'Contacts' page, check console logs")
     @Tag("web")
     void checkConsoleLogs() {
-        open("contacts");
-        String logs = getConsoleLogs();
+        open("");
+        $("div.menu [href='/contacts']").click();
 
         assertThat(getConsoleLogs(), not(containsString("SEVERE")));
+        //Yes, it probably happens just because Selenide is acting too fast, but nevertheless.
+
     }
 }
