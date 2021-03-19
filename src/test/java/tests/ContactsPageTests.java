@@ -2,7 +2,6 @@ package tests;
 
 import com.codeborne.selenide.Condition;
 import configuration.TestBase;
-import helpers.AttachmentsHelper;
 import jdk.jfr.Description;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -22,7 +21,7 @@ public class ContactsPageTests extends TestBase {
     void contactsFooterSocialLinksTest() {
         open("");
 
-        $("div.menu [href='contacts']").click();
+        $("div.menu [href='/contacts']").click();
         $("body").$(byText("© 2018 – 2020 ai people")).scrollIntoView(true);
         $("div.footer-component .socials").$$("a").get(0).shouldHave(Condition.attribute("href", "https://www.facebook.com/pg/AIPeople-1604836239648797/about/?ref=page_internal"));
         $("div.footer-component .socials").$$("a").get(1).shouldHave(Condition.attribute("href", "https://vk.com/aipeopleteam"));
@@ -33,7 +32,7 @@ public class ContactsPageTests extends TestBase {
     @Description("Open 'Contacts' page, check console logs")
     @Tag("web")
     void checkConsoleLogs() {
-        open("/contacts");
+        open("contacts");
         String logs = getConsoleLogs();
 
         assertThat(getConsoleLogs(), not(containsString("SEVERE")));
