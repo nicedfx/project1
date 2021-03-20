@@ -18,16 +18,16 @@ public class TestBase {
         SelenideLogger.addListener("allure", new AllureSelenide());
 
         TestConfig config = ConfigFactory.create(TestConfig.class, System.getProperties());
-        System.setProperty("selenoidUrl", config.selenoidUrl()); //to use in getVideoUrl method
-
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
         Configuration.browserCapabilities = capabilities;
-        Configuration.browserVersion= config.browserVersion();
+        Configuration.browserVersion = config.browserVersion();
         Configuration.browser = config.browser();
         Configuration.startMaximized = config.startMaximized();
         Configuration.baseUrl = "https://aipeople.ru/";
+
+        System.setProperty("selenoidUrl", config.selenoidUrl()); //to use in getVideoUrl method
 
         if (config.isRemote() == true) {
             Configuration.remote = config.selenoidUrl() + ":4444/wd/hub/";
@@ -40,10 +40,7 @@ public class TestBase {
         attachPageSource();
         if (Configuration.browser.equals("chrome")) {
             attachAsText("Browser console logs", getConsoleLogs());
-//            System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-//            System.out.println(getConsoleLogs());
         }
-//        getConsoleLogs(); There is an issue with fireFox console logs!
         attachVideo();
         closeWebDriver();
     }

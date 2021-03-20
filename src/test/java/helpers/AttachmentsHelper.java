@@ -16,7 +16,6 @@ import static org.openqa.selenium.logging.LogType.BROWSER;
 
 public class AttachmentsHelper {
     TestConfig config = ConfigFactory.create(TestConfig.class, System.getProperties());
-    String SelenoidUrl = config.selenoidUrl();
 
     @Attachment(value = "{attachName}", type = "text/plain")
     public static String attachAsText(String attachName, String message) {
@@ -33,8 +32,6 @@ public class AttachmentsHelper {
         return getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8);
     }
 
-
-
     @Attachment(value = "video", type = "text/html", fileExtension = ".html")
     public static String attachVideo() {
         return "<html><body><video width='100%' height='100%' controls autoplay><source src='"
@@ -49,7 +46,7 @@ public class AttachmentsHelper {
     public static String getSessionId() {
         return ((RemoteWebDriver) getWebDriver()).getSessionId().toString();
     }
-//    @Attachment(value = "Console logs", type = "text/plain")
+
     public static String getConsoleLogs() {
         return String.join("\n", Selenide.getWebDriverLogs(BROWSER));
     }
