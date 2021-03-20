@@ -20,7 +20,6 @@ public class ContactsPageTests extends TestBase {
     @Test
     @Description("Check footer social network links")
     @Tag("web")
-    @Disabled
     void contactsFooterSocialLinksTest() {
         step("Open the main page", () -> {
             open("");
@@ -37,7 +36,6 @@ public class ContactsPageTests extends TestBase {
     @Test
     @Description("Open 'Contacts' page, check console logs")
     @Tag("web")
-    @Disabled
     void checkConsoleLogs() {
         step("Open the main page", () -> {
             open("");
@@ -55,7 +53,6 @@ public class ContactsPageTests extends TestBase {
     @Test
     @Description("Check footer social network links")
     @Tag("web")
-    @Disabled
     void JustaFailingTest() {
         step("Open the main page", () -> {
             open("");

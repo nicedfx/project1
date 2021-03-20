@@ -15,7 +15,6 @@ public class MainPageTests extends TestBase {
     @Test
     @Tag("web")
     @Description("Check that 3 product cards are displayed on the main page")
-    @Disabled
     void productsCountTest() {
         step("Open the main page", () -> {
             open("");
@@ -40,7 +39,6 @@ public class MainPageTests extends TestBase {
     @Test
     @Tag("web")
     @Description("Check that 7 cards are displayed in the 'Magnificent Seven' section")
-    @Disabled
     void magnificentSevenCountTest() {
         step("Open the main page", () -> {
             open("");
@@ -67,7 +65,6 @@ public class MainPageTests extends TestBase {
     @Test
     @Tag("web")
     @Description("Check 'expanding' links are in place")
-    @Disabled
     void checkExpandingLinksTest() {
         step("Open the main page", () -> {
             open("");
