@@ -2,6 +2,7 @@ package tests;
 
 import configuration.TestBase;
 import jdk.jfr.Description;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
@@ -14,6 +15,7 @@ public class MainPageTests extends TestBase {
     @Test
     @Tag("web")
     @Description("Check that 3 product cards are displayed on the main page")
+    @Disabled
     void productsCountTest() {
         open("");
         $("#index-2 .cards").scrollIntoView(true);
@@ -27,6 +29,7 @@ public class MainPageTests extends TestBase {
     @Test
     @Tag("web")
     @Description("Check that 7 cards are displayed in the 'Magnificent Seven' section")
+    @Disabled
     void magnificentSevenCountTest() {
         open("");
 
@@ -49,7 +52,8 @@ public class MainPageTests extends TestBase {
 
     @Test
     @Tag("web")
-    @Description("Check 'expanging' links are in place")
+    @Description("Check 'expanding' links are in place")
+    @Disabled
     void checkExpandingLinksTest() {
         open("");
 
@@ -62,8 +66,9 @@ public class MainPageTests extends TestBase {
 
     @Test
     @Tag("web")
-    @Tag("negative")
+    @Tag("postitve")
     @Description("Check 'expanding' links lead to the correct pages")
+    @Disabled
     void checkExpandingLinksWorkingTest() {
         open("");
 

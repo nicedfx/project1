@@ -40,6 +40,8 @@ public class TestBase {
         attachPageSource();
         if (Configuration.browser.equals("chrome")) {
             attachAsText("Browser console logs", getConsoleLogs());
+//            System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+//            System.out.println(getConsoleLogs());
         }
 //        getConsoleLogs(); There is an issue with fireFox console logs!
         attachVideo();
