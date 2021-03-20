@@ -27,14 +27,17 @@ public class ContactsPageTests extends TestBase {
         $("div.footer-component .socials").$$("a").get(2).shouldHave(Condition.attribute("href", "https://www.instagram.com/ai.people/"));
     }
 
+
     @Test
     @Description("Open 'Contacts' page, check console logs")
     @Tag("web")
     void checkConsoleLogs() {
         open("");
         $("div.menu [href='/contacts']").click();
+        $("div.footer-component .socials").$$("a").get(0).shouldHave(Condition.attribute("href", "https://www.facebook.com/pg/AIPeople-1604836239648797/about/?ref=page_internal"));
 
-        assertThat(getConsoleLogs(), not(containsString("SEVERE")));
+        String consoleLog = getConsoleLogs();
+        assertThat(consoleLog, not(containsString("SEVERE")));
         //Yes, it probably happens just because Selenide is acting too fast, but nevertheless.
 
     }
