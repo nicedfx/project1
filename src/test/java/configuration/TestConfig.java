@@ -1,7 +1,7 @@
 package configuration;
 
 import org.aeonbits.owner.Config;
-
+@Config.LoadPolicy(Config.LoadType.MERGE)
 @Config.Sources("classpath:${cfg}.properties")
 public interface TestConfig extends Config {
 
